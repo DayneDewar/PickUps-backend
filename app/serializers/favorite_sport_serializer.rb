@@ -1,3 +1,5 @@
 class FavoriteSportSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :sport
+
+  belongs_to :user
 end

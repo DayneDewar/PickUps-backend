@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_07_153042) do
+ActiveRecord::Schema.define(version: 2021_04_08_185407) do
 
   create_table "events", force: :cascade do |t|
     t.string "location"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_04_07_153042) do
     t.integer "sport_id", null: false
     t.date "date"
     t.time "time"
+    t.float "lat"
+    t.float "lng"
     t.index ["sport_id"], name: "index_events_on_sport_id"
   end
 
