@@ -16,9 +16,9 @@ class EventsController < ApplicationController
         latitude = JSON.parse(response)["results"][0]["geometry"]["location"]["lat"]
         longitude = JSON.parse(response)["results"][0]["geometry"]["location"]["lng"]
         event = Event.find(params[:id])
-        event.update(event_params)
         event.lat = latitude
         event.lng = longitude
+        event.update(event_params)
         render json: event
     end
 

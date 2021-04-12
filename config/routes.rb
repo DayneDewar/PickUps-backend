@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   patch "/users/:id/player_rating", to: "users#player_rating"
 
   post "/login", to: "users#login"
+  post "/cancel", to: "user_events#cancel"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

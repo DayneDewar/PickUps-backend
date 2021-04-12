@@ -9,4 +9,5 @@ class User < ApplicationRecord
         self.update(rating: new_rating)
     end
 
+
 end
