@@ -32,9 +32,22 @@ class UsersController < ApplicationController
         render json: user
     end
 
+    def player_rating
+        user = User.find(params[:id])
+        user.update_rating(params[:review].to_i)
+        render json: user
+    end
+
+    def login
+        user = User.find_by(firstname: params[:firstname])
+        if user.lastname == params[:lastname]
+            render json: user
+        end
+    end
+
     private
 
     def user_params
-        params.permit(:name, :age, :bio, :location, :rating)
+        params.permit(:firstname, :lastname, :age, :bio, :location, :rating)
     end
 end

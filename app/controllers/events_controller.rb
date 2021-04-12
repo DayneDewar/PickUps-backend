@@ -10,6 +10,18 @@ class EventsController < ApplicationController
         render json: event
     end
 
+    def update
+        maps = ENV["GOOGLE_API_KEY"]
+        response = RestClient.get "https://maps.googleapis.com/maps/api/geocode/json?address=#{params[:location]}&key=#{maps}"
+        latitude = JSON.parse(response)["results"][0]["geometry"]["location"]["lat"]
+        longitude = JSON.parse(response)["results"][0]["geometry"]["location"]["lng"]
+        event = Event.find(params[:id])
+        event.update(event_params)
+        event.lat = latitude
+        event.lng = longitude
+        render json: event
+    end
+
     def create
         maps = ENV["GOOGLE_API_KEY"]
         response = RestClient.get "https://maps.googleapis.com/maps/api/geocode/json?address=#{params[:location]}&key=#{maps}"

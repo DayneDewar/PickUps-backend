@@ -35,6 +35,6 @@ class SportsController < ApplicationController
     private
 
     def sport_params
-        params.permit(:name, :equipment, :image, :rules)
+        params.permit(:name, :equipment, :image, :rules, :user_id)
     end
 end

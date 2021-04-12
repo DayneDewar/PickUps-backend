@@ -12,13 +12,15 @@ class FavoriteSportsController < ApplicationController
 
     def create
         favorite = FavoriteSport.create(favorite_params)
-        render json: favorite_params
+
+        render json: favorite
     end
 
     def destroy
         favorite = FavoriteSport.find(params[:id])
         favorite.destroy
     end
+
 
     private
 

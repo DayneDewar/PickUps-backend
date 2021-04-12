@@ -1,3 +1,4 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :name, :age, :bio, :location, :rating, :favorite_sports, :events
+  attributes :id, :firstname, :lastname, :age, :bio, :location, :rating, :events
+  has_many :favorite_sports
 end
