@@ -34,10 +34,16 @@ class EventsController < ApplicationController
         render json: event
     end
 
+    def destroy
+        event = Event.find(params[:id])
+        event.destroy
+        render json: event
+    end
+
     private 
 
     def event_params
-        params.permit(:location, :equipment, :sport_id, :lat, :lng)
+        params.permit(:location, :equipment, :date, :time, :sport_id, :lat, :lng)
     end
 
 end

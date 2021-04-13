@@ -20,6 +20,13 @@ class UserEventsController < ApplicationController
         render json: user_event
     end
 
+    def cancel_everyone
+        user_events = UserEvent.where(event_id: params[:event_id])
+        user_events.each do |joiner|
+            joiner.destroy
+        end
+        render json: user_events
+    end
 
     private 
 

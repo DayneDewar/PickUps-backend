@@ -19,6 +19,7 @@ class FavoriteSportsController < ApplicationController
     def destroy
         favorite = FavoriteSport.find(params[:id])
         favorite.destroy
+        render json: favorite
     end
 
 
