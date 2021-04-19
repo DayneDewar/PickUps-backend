@@ -31,6 +31,7 @@ class EventsController < ApplicationController
         event.lat = latitude
         event.lng = longitude
         event.save
+        event.new_game(params[:user_id])
         render json: event
     end
 
@@ -43,7 +44,7 @@ class EventsController < ApplicationController
     private 
 
     def event_params
-        params.permit(:location, :equipment, :date, :time, :sport_id, :lat, :lng)
+        params.permit(:location, :equipment, :datetime, :sport_id, :lat, :lng)
     end
 
 end

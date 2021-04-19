@@ -10,13 +10,9 @@ class SportsController < ApplicationController
         render json: sport
     end
 
-    def new
-        sport = Sport.new()
-        render json: sport
-    end
-
     def create
         sport = Sport.create(sport_params)
+        sport.new_sport(params[:user_id])
         render json: sport
     end
 

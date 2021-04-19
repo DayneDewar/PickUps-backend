@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :events
   resources :favorite_sports
   resources :sports
+  resources :users
 
   patch "/users/:id/player_rating", to: "users#player_rating"
   get "/me", to: "users#me"
