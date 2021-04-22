@@ -1,6 +1,8 @@
 user1 = User.create(firstname: "Dayne", lastname: "Dewar", age: 25, bio: "Fun dude with a cool tude", location: "Brooklyn, NY", rating: 5, username: 'dayned', password: '123')
-user2 = User.create(firstname: "Gary The Snail", lastname: "The Snail", age: 5, bio: "Meow", location: "Bikini Bottom, NY", rating: 10, username: 'gary', password: '123')
-user3 = User.create(firstname: "Patrick", lastname: "Star", age: 35, bio: "No This is Patrick", location: "Under a Rock" , rating: 2, username: 'patrick', password: '123')
+user2 = User.create(firstname: "Gary", lastname: "The Snail", age: 5, bio: "Meow", location: "Bikini Bottom, NY", rating: 10, username: 'gary', password: '123')
+user3 = User.create(firstname: "Patrick", lastname: "Star", age: 35, bio: "Is mayonaise an instrument?", location: "Under a Rock" , rating: 2, username: 'patrick', password: '123')
+user4 = User.create(firstname: "SpongeBob", lastname: "SquarePants", age: 21, bio: "Just your average frycook", location: "in a pineapple" , rating: 9, username: 'sponge', password: '123')
+user5 = User.create(firstname: "Squidward", lastname: "Tentacles", age: 40, bio: "I hate spongebob & work & everything", location: "why do you wanna know?" , rating: 1, username: 'squid', password: '123')
 
 sport1 = Sport.create(name: "Volleyball", equipment: "volleyball", rules: "Each team consist of 6 players and 6 substitutes. Players can be substituted at any time but if they are to return can only be swapped for the player that replaced them. Each team can hit the ball up to three times before the ball must be returned. The defensive team can then try and block or return the ball again hitting it a maximum of three times. Games are played up to 25 points and must be won by 2 clear points. Violations will be called for the following: 1. Stepping over the base line when serving the ball. 2. Ball hits the net and fails to get over the net (If the ball hits the net and still goes over the net then this is perfectly legal). 3. Players are not allowed to carry, palm or run with the ball. 4. Players must not touch the net with any part of the body. If the net is said to have hit them rather than vice-versa, then this is ok. 5. The ball cannot travel under the net. 6. Players cannot reach over the net and hit the ball.", image: "https://3er1viui9wo30pkxh1v2nh4w-wpengine.netdna-ssl.com/wp-content/uploads/prod/sites/93/2018/05/FIVB-vball-960x640.png", user_id: 3)
 sport2 = Sport.create(name: "Basketball", equipment: "basketball", rules: "Each team can have a maximum of 5 players on the court at any one time. Substitutions can be made as many times as they wish within the game. The ball can only be moved by either dribbling (bouncing the ball) or passing the ball. Once a player puts two hands on the ball (not including catching the ball) they cannot then dribble or move with the ball and the ball must be passed or shot. After the ball goes into a team’s half and they win possession back the ball must then make it back over the half way line within 10 seconds. If the ball fails to do so then a foul will be called and the ball will be turned over. Each team has 24 seconds to at least shot at the basket. A shot constitutes either going in the basket or hitting the rim of the basket. If after the shot is taken and the ball fails to go in the basket then the shot clock is restarted for another 24 seconds. The team trying to score a basket is called the offence whilst the team trying to prevent them from scoring is called the defence. The defence must do all they can to stop the offence from scoring by either blocking a shot or preventing a shot from being fired. After each successful basket the ball is then turned over to the opposition.", image: "https://eyofbaku2019.com/images/sport%20pages/basketball.jpg", user_id: 1)
@@ -32,11 +34,19 @@ user_event2 = UserEvent.create(user_id: 2, event_id: 2)
 user_event3 = UserEvent.create(user_id: 1, event_id: 3)
 user_event4 = UserEvent.create(user_id: 3, event_id: 4)
 user_event5 = UserEvent.create(user_id: 2, event_id: 5)
-user_event6 = UserEvent.create(user_id: 2, event_id: 6)
-user_event7 = UserEvent.create(user_id: 1, event_id: 7)
+user_event6 = UserEvent.create(user_id: 5, event_id: 6)
+user_event7 = UserEvent.create(user_id: 5, event_id: 7)
 user_event8 = UserEvent.create(user_id: 3, event_id: 8)
 user_event9 = UserEvent.create(user_id: 1, event_id: 9)
 user_event10 = UserEvent.create(user_id: 2, event_id: 10)
+user_event11 = UserEvent.create(user_id: 1, event_id: 1)
+user_event12 = UserEvent.create(user_id: 3, event_id: 2)
+user_event13 = UserEvent.create(user_id: 4, event_id: 3)
+user_event14 = UserEvent.create(user_id: 4, event_id: 10)
+user_event15 = UserEvent.create(user_id: 5, event_id: 1)
+user_event16 = UserEvent.create(user_id: 3, event_id: 2)
+user_event17 = UserEvent.create(user_id: 5, event_id: 3)
+
 
 
 puts '🔥🔥🔥🔥🔥'
