@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friendships
   resources :user_events
   resources :events
   resources :favorite_sports
