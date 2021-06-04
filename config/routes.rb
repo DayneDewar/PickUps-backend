@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   post "/login", to: "users#login"
   post "/signup", to: "users#signup"
   post "/cancel", to: "user_events#cancel"
+  post "/friendships/send_request", to: "friendships#send_request"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
