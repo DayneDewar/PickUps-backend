@@ -4,18 +4,6 @@ class User < ApplicationRecord
     has_many :sports
     has_many :favorite_sports
 
-    # has_many :friend_requests, class_name: 'Friendship', foreign_key: 'friend_two'
-    # has_many :pals, through: :friend_requests, source: :added_friend
-
-    # has_many :friends_added, class_name: 'Friendship', foreign_key: 'friend_one'
-    # has_many :buddies, through: :friends_added, source: :recieved_request
-
-    has_many :friendships, dependent: :destroy
-    has_many :friends, through: :friendships
-
-    has_many :received_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
-    has_many :received_friends, through: :received_friendships, source: 'user'
-    
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }
 
@@ -25,15 +13,21 @@ class User < ApplicationRecord
         self.update(rating: new_rating)
     end
 
-    # def friends 
-    #     self.pals + self.buddies
-    # end
+    def friend_requests
+        added_me_ids = Friend.where(added_user_id: self.id).map(&:user_id)
+        added_users_ids = Friend.where(user_id: self.id).map(&:added_user_id)
 
-    def active_friends
-        friends.select{ |friend| friend.friends.include?(self) }  
+        not_accepted = added_me_ids.select{|id| added_users_ids.exclude?(id)}
+        User.where(id: not_accepted)
     end
-      
-    def pending_friends
-        friends.select{ |friend| !friend.friends.include?(self) }  
-    end
+
+    def accepted_friends
+        added_users_ids = Friend.where(user_id: self.id).map(&:added_user_id)
+        added_me_users_ids = Friend.where(added_user_id: self.id).map(&:user_id)
+    
+        matched_ids = added_users_ids.select{|id| added_me_users_ids.include?(id)}
+    
+        User.where(id: matched_ids)
+      end
+    
 end

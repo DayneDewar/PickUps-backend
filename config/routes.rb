@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friends
   resources :friendships
   resources :user_events
   resources :events
@@ -12,6 +13,8 @@ Rails.application.routes.draw do
   post "/login", to: "users#login"
   post "/signup", to: "users#signup"
   post "/cancel", to: "user_events#cancel"
-  post "/friendships/send_request", to: "friendships#send_request"
+  post "/add_friend", to: "friends#add_friend"
+  post "/decline_friend", to: "friends#decline_friend"
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
