@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
     has_secure_password
     validates :username, uniqueness: { case_sensitive: false }
-
+    validates :firstname, :lastname, :age, presence: true
     
     def update_rating(number)
         new_rating = (self.rating + number) / 2
